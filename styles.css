@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+    color:white;
+}
+
+img {
+    width: 100%;
+}
+
+.titulo {
+    margin: 20px;
+    width: 60%;
+    color: black;
+    font-size: 30px;
+}
+
+.contenedor-opciones {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.listado-favoritos {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+    margin: 2rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+}
+
+.imagen-opcion {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tituloOpcion {
+    color: black;
+    margin: 10px;
+}
+
+.btn-favorito{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-favorito:hover{
+    background-color: rgb(39, 68, 94);
+}
+
+
+.botones {
+    margin: 20px;
+}
