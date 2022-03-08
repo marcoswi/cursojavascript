@@ -18,11 +18,11 @@ const opciones = [
 
 let inputUsuario = "";
 const opcionElegida = [];
+let horarios = "SI";
 
 const botonRestaurantes = document.querySelector ("#btnRestaurantes");
 const botonHoteles = document.querySelector ("#btnHoteles");
 const botonActividades = document.querySelector ("#btnActividades");
-
 const contenedorOpciones = document.querySelector('.contenedor-opciones')
 
 //Opcion Restaurantes
@@ -55,10 +55,15 @@ botonRestaurantes.onclick = () => {
             btnAgregar.onclick = () =>{
             agregarAFavorito (item.id)
             };
+            //Agrego aviso de abierto o cerrado 
+            const avisoAbierto = document.createElement('div');
+            avisoAbierto.classList.add ('btn-horarios');
+            avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
             //hago los appendChild para que se arme la card dentro del contenedor
             divOpcion.appendChild(imgOpcion);
             divOpcion.appendChild(tituloOpcion);
             divOpcion.appendChild(btnAgregar);
+            divOpcion.appendChild(avisoAbierto);
             contenedorOpciones.appendChild(divOpcion);
         }
     }
@@ -96,10 +101,15 @@ botonHoteles.onclick = () => {
             btnAgregar.onclick = () =>{
             agregarAFavorito (item.id)
             };
+            //Agrego aviso de abierto o cerrado 
+            const avisoAbierto = document.createElement('div');
+            avisoAbierto.classList.add ('btn-horarios');
+            avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
             //hago los appendChild para que se arme la card dentro del contenedor
             divOpcion.appendChild(imgOpcion);
             divOpcion.appendChild(tituloOpcion);
             divOpcion.appendChild(btnAgregar);
+            divOpcion.appendChild(avisoAbierto);
             contenedorOpciones.appendChild(divOpcion);
         }
     }
@@ -134,20 +144,25 @@ botonActividades.onclick = () => {
             const btnAgregar = document.createElement('button');
             btnAgregar.classList.add ('btn-favorito');
             btnAgregar.textContent = "Agregar a favoritos";
+            // Capto el evento y ejecuto la funcion para agregar la opcion a favoritos
             btnAgregar.onclick = () =>{
             agregarAFavorito (item.id)
             };
+            //Agrego aviso de abierto o cerrado 
+            const avisoAbierto = document.createElement('div');
+            avisoAbierto.classList.add ('btn-horarios');
+            avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
             //hago los appendChild para que se arme la card dentro del contenedor
             divOpcion.appendChild(imgOpcion);
             divOpcion.appendChild(tituloOpcion);
             divOpcion.appendChild(btnAgregar);
+            divOpcion.appendChild(avisoAbierto);
             contenedorOpciones.appendChild(divOpcion);
         }
     }
 //Ejecuto la funcion para poder mostrar los resultados en pantalla
     mostrarOpciones ();
 }
-
 
 
 // Para la seccion de favoritos
@@ -175,12 +190,18 @@ function mostrarFavoritos (arregloFavoritos) {
         const tituloOpcion = document.createElement ('h2')
         tituloOpcion.classList.add ('tituloOpcion');
         tituloOpcion.textContent = item.name;
+        //Agrego aviso de abierto o cerrado 
+        const avisoAbierto = document.createElement('div');
+        avisoAbierto.classList.add ('btn-horarios');
+        avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
         //hago los appendChild para mostrar la informacion en las cards creadas
         divOpcion.appendChild(imgOpcion);
         divOpcion.appendChild(tituloOpcion);
+        divOpcion.appendChild(avisoAbierto);
         listadoFavoritos.appendChild(divOpcion);
 
-        const guardarEnStorage = (clave, valor) => { localStorage.setItem(clave, valor);}
+        const guardarEnStorage = (clave, valor) => { localStorage.setItem(clave, valor)}
         guardarEnStorage("listaOpciones", JSON.stringify(favoritos));
+
     }
 }
