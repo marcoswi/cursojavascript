@@ -69,15 +69,14 @@ img {
 }
 
 
-.btn-horarios{
-    color: black;
+.horarios{
     display: inline-block;
-    padding: 0.5rem 1rem;
-    margin: 1rem 0;
+    padding: 0.5rem ;
+    margin: 10px;
     border-radius: 10px;
     outline: none;
-    border: none;
-    cursor: pointer;
+    border: 1px solid black;
+    color: black;
 }
 
 .botones {

@@ -1,16 +1,16 @@
 
 //Array de opciones 
 const opciones = [
-    {id:"1", name:"Resaurante Mexicano",  tipo:"RESTAURANTE", recomendaciones:"$$", metodoContacto:"Telefono", img:"./img/restaurante_mexicano.jpg"},
-    {id:"2", name:"Resaurante Argentino",  tipo:"RESTAURANTE", recomendaciones:"$$", metodoContacto:"Telefono", img:"./img/restaurante_argentino.jpg"},
-    {id:"3", name:"Pizzeria",  tipo:"RESTAURANTE", recomendaciones:"$", metodoContacto:"Telefono", img:"./img/pizzeria.jpg"},
-    {id:"4", name:"Fusion Peruano-Cantabro",  tipo:"RESTAURANTE", recomendaciones:"$$$", metodoContacto:"", img:"./img/fusion_peruano.jpg"},
-    {id:"5", name:"Clases Surf",  tipo:"ACTIVIDAD", recomendaciones:"$$", metodoContacto:"Email", img:"./img/clases_surf.jpg"},
-    {id:"6", name:"Alquiler Kayaks",  tipo:"ACTIVIDAD", recomendaciones:"$", metodoContacto:"Email", img:"./img/alquiler_kayaks.jpg"},
-    {id:"7", name:"Trekking guiado",  tipo:"ACTIVIDAD", recomendaciones:"$", metodoContacto:"Email", img:"./img/trekking_guiado.jpg"},
-    {id:"8", name:"Hostel Marcos",  tipo:"HOTEL", recomendaciones:"$$", metodoContacto:"Email", img:"./img/hotel_marcos.jpg"},
-    {id:"9", name:"Hotel Boutique",  tipo:"HOTEL", recomendaciones:"$$$", metodoContacto:"Email", img:"./img/hotel_boutique.jpg"},
-    {id:"10", name:"Hotel y Spa",  tipo:"HOTEL", recomendaciones:"$$$", metodoContacto:"Email", img:"./img/hotel_spa.jpg"},
+    {id:"1", name:"Resaurante Mexicano",  tipo:"RESTAURANTE", recomendaciones:"$$", metodoContacto:"Telefono", img:"./img/restaurante_mexicano.jpg", ubicacion: "Madrid"},
+    {id:"2", name:"Resaurante Argentino",  tipo:"RESTAURANTE", recomendaciones:"$$", metodoContacto:"Telefono", img:"./img/restaurante_argentino.jpg", ubicacion: "Barcelona"},
+    {id:"3", name:"Pizzeria",  tipo:"RESTAURANTE", recomendaciones:"$", metodoContacto:"Telefono", img:"./img/pizzeria.jpg", ubicacion: "Valencia"},
+    {id:"4", name:"Fusion Peruano-Cantabro",  tipo:"RESTAURANTE", recomendaciones:"$$$", metodoContacto:"", img:"./img/fusion_peruano.jpg", ubicacion: "Madrid"},
+    {id:"5", name:"Clases Surf",  tipo:"ACTIVIDAD", recomendaciones:"$$", metodoContacto:"Email", img:"./img/clases_surf.jpg", ubicacion: "Barcelona"},
+    {id:"6", name:"Alquiler Kayaks",  tipo:"ACTIVIDAD", recomendaciones:"$", metodoContacto:"Email", img:"./img/alquiler_kayaks.jpg", ubicacion: "Valencia"},
+    {id:"7", name:"Trekking guiado",  tipo:"ACTIVIDAD", recomendaciones:"$", metodoContacto:"Email", img:"./img/trekking_guiado.jpg", ubicacion: "Madrid"},
+    {id:"8", name:"Hostel Marcos",  tipo:"HOTEL", recomendaciones:"$$", metodoContacto:"Email", img:"./img/hotel_marcos.jpg", ubicacion: "Barcelona"},
+    {id:"9", name:"Hotel Boutique",  tipo:"HOTEL", recomendaciones:"$$$", metodoContacto:"Email", img:"./img/hotel_boutique.jpg", ubicacion: "Valencia"},
+    {id:"10", name:"Hotel y Spa",  tipo:"HOTEL", recomendaciones:"$$$", metodoContacto:"Email", img:"./img/hotel_spa.jpg", ubicacion: "Madrid"},
 ];
 
 
@@ -62,13 +62,39 @@ botonRestaurantes.onclick = () => {
             };
             //Agrego aviso de abierto o cerrado 
             const avisoAbierto = document.createElement('div');
-            avisoAbierto.classList.add ('btn-horarios');
+            avisoAbierto.classList.add ('horarios');
             avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
+            //Agrego ciudad y temperatura actual 
+            const clima = document.createElement('div');
+            clima.classList.add ('horarios');
+            clima.textContent = `Ciudad: ${item.ubicacion} Temperatura actual:`
+            let city = item.ubicacion;
+            let key = "83a5f95b7e141fb64f8f8dfd98930529";
+            let url =
+                "http://api.openweathermap.org/data/2.5/weather?q=" +
+                city +
+                "&appid=" +
+                key;
+                fetch(url)
+                    .then((data) => {
+                    return data.json();
+                    })
+                    .then((clima) => {
+                    let temperatura = clima.main.temp;
+                    let tempC = (temperatura - 273.15).toFixed(0);
+                    console.log (tempC);
+                    })
+                    .catch((err) => console.log(err));
+                    
+
+
             //hago los appendChild para que se arme la card dentro del contenedor
             divOpcion.appendChild(imgOpcion);
             divOpcion.appendChild(tituloOpcion);
             divOpcion.appendChild(btnAgregar);
             divOpcion.appendChild(avisoAbierto);
+            divOpcion.appendChild(clima);
+
             contenedorOpciones.appendChild(divOpcion);
         }
     }
@@ -113,13 +139,40 @@ botonHoteles.onclick = () => {
             };
             //Agrego aviso de abierto o cerrado 
             const avisoAbierto = document.createElement('div');
-            avisoAbierto.classList.add ('btn-horarios');
+            avisoAbierto.classList.add ('horarios');
             avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
+
+            //Agrego ciudad y temperatura actual 
+            const clima = document.createElement('div');
+            clima.classList.add ('horarios');
+            clima.textContent = `Ciudad: ${item.ubicacion} Temperatura actual:`
+            let city = item.ubicacion;
+            let key = "83a5f95b7e141fb64f8f8dfd98930529";
+            let url =
+                "http://api.openweathermap.org/data/2.5/weather?q=" +
+                city +
+                "&appid=" +
+                key;
+                fetch(url)
+                    .then((data) => {
+                    return data.json();
+                    })
+                    .then((clima) => {
+                    let temperatura = clima.main.temp;
+                    let tempC = (temperatura - 273.15).toFixed(0);
+                    console.log (tempC);
+                    })
+                    .catch((err) => console.log(err));
+                    
+
+
             //hago los appendChild para que se arme la card dentro del contenedor
             divOpcion.appendChild(imgOpcion);
             divOpcion.appendChild(tituloOpcion);
             divOpcion.appendChild(btnAgregar);
             divOpcion.appendChild(avisoAbierto);
+            divOpcion.appendChild(clima);
+
             contenedorOpciones.appendChild(divOpcion);
         }
     }
@@ -165,13 +218,39 @@ botonActividades.onclick = () => {
             };
             //Agrego aviso de abierto o cerrado 
             const avisoAbierto = document.createElement('div');
-            avisoAbierto.classList.add ('btn-horarios');
+            avisoAbierto.classList.add ('horarios');
             avisoAbierto.textContent = (horarios == "SI") ? "Abierto" : "Cerrado"
+            //Agrego ciudad y temperatura actual 
+            const clima = document.createElement('div');
+            clima.classList.add ('horarios');
+            clima.textContent = `Ciudad: ${item.ubicacion} Temperatura actual:`
+            let city = item.ubicacion;
+            let key = "83a5f95b7e141fb64f8f8dfd98930529";
+            let url =
+                "http://api.openweathermap.org/data/2.5/weather?q=" +
+                city +
+                "&appid=" +
+                key;
+                fetch(url)
+                    .then((data) => {
+                    return data.json();
+                    })
+                    .then((clima) => {
+                    let temperatura = clima.main.temp;
+                    let tempC = (temperatura - 273.15).toFixed(0);
+                    console.log (tempC);
+                    })
+                    .catch((err) => console.log(err));
+                    
+
+
             //hago los appendChild para que se arme la card dentro del contenedor
             divOpcion.appendChild(imgOpcion);
             divOpcion.appendChild(tituloOpcion);
             divOpcion.appendChild(btnAgregar);
             divOpcion.appendChild(avisoAbierto);
+            divOpcion.appendChild(clima);
+
             contenedorOpciones.appendChild(divOpcion);
         }
     }
@@ -220,3 +299,6 @@ function mostrarFavoritos (arregloFavoritos) {
 
     }
 }
+
+
+
