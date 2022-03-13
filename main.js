@@ -54,6 +54,11 @@ botonRestaurantes.onclick = () => {
             btnAgregar.textContent = "Agregar a favoritos";
             btnAgregar.onclick = () =>{
             agregarAFavorito (item.id)
+            Toastify ({
+                text: "Agregado a favoritos",
+                duration: 1000,
+                position: "right",
+            }).showToast();
             };
             //Agrego aviso de abierto o cerrado 
             const avisoAbierto = document.createElement('div');
@@ -100,6 +105,11 @@ botonHoteles.onclick = () => {
             btnAgregar.textContent = "Agregar a favoritos";
             btnAgregar.onclick = () =>{
             agregarAFavorito (item.id)
+            Toastify ({
+                text: "Agregado a favoritos",
+                duration: 1000,
+                position: "right",
+            }).showToast();
             };
             //Agrego aviso de abierto o cerrado 
             const avisoAbierto = document.createElement('div');
@@ -147,6 +157,11 @@ botonActividades.onclick = () => {
             // Capto el evento y ejecuto la funcion para agregar la opcion a favoritos
             btnAgregar.onclick = () =>{
             agregarAFavorito (item.id)
+            Toastify ({
+                text: "Agregado a favoritos",
+                duration: 1000,
+                position: "right",
+            }).showToast();
             };
             //Agrego aviso de abierto o cerrado 
             const avisoAbierto = document.createElement('div');
