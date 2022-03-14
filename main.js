@@ -71,7 +71,7 @@ botonRestaurantes.onclick = () => {
             let city = item.ubicacion;
             let key = "f7a06e32dee9ed85b0b86e5e2e574c32";
             let url =
-                "http://api.openweathermap.org/data/2.5/weather?q=" +
+                "https://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
                 "&appid=" +
                 key;
@@ -149,7 +149,7 @@ botonHoteles.onclick = () => {
             let city = item.ubicacion;
             let key = "f7a06e32dee9ed85b0b86e5e2e574c32";
             let url =
-                "http://api.openweathermap.org/data/2.5/weather?q=" +
+                "https://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
                 "&appid=" +
                 key;
@@ -227,7 +227,7 @@ botonActividades.onclick = () => {
             let city = item.ubicacion;
             let key = "f7a06e32dee9ed85b0b86e5e2e574c32";
             let url =
-                "http://api.openweathermap.org/data/2.5/weather?q=" +
+                "https://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
                 "&appid=" +
                 key;
