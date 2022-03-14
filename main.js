@@ -69,7 +69,7 @@ botonRestaurantes.onclick = () => {
             clima.classList.add ('horarios');
             clima.textContent = `Ciudad: ${item.ubicacion} Temperatura actual:`
             let city = item.ubicacion;
-            let key = "83a5f95b7e141fb64f8f8dfd98930529";
+            let key = "f7a06e32dee9ed85b0b86e5e2e574c32";
             let url =
                 "http://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
@@ -147,7 +147,7 @@ botonHoteles.onclick = () => {
             clima.classList.add ('horarios');
             clima.textContent = `Ciudad: ${item.ubicacion} Temperatura actual:`
             let city = item.ubicacion;
-            let key = "83a5f95b7e141fb64f8f8dfd98930529";
+            let key = "f7a06e32dee9ed85b0b86e5e2e574c32";
             let url =
                 "http://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
@@ -225,7 +225,7 @@ botonActividades.onclick = () => {
             clima.classList.add ('horarios');
             clima.textContent = `Ciudad: ${item.ubicacion} Temperatura actual:`
             let city = item.ubicacion;
-            let key = "83a5f95b7e141fb64f8f8dfd98930529";
+            let key = "f7a06e32dee9ed85b0b86e5e2e574c32";
             let url =
                 "http://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
